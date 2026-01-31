@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choi Dong-A | Professional Portfolio</title>
+    <style>
+        /* --- APPLE SYSTEM TOKENS --- */
+        :root {
+            --bg-color: #f5f5f7;
+            --container-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-sub: #86868b;
+            --accent: #0071e3;
+            --highlight-bg: #ccff00;
+            --apple-gradient: linear-gradient(90deg, #ff4d4d, #f9cb28, #20e3b2, #2997ff, #ad51fe, #ff4d4d);
+            --card-bg: #ffffff;
+            --glass: saturate(180%) blur(20px) rgba(255, 255, 255, 0.7);
+            --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+            letter-spacing: -0.022em;
+            word-break: keep-all;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
+        
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 9999;
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-content { width: 100%; max-width: 1000px; display: flex; justify-content: space-between; padding: 0 22px; font-size: 12px; font-weight: 400; color: var(--text-main); opacity: 0.8; }
+        .nav-logo { font-weight: 600; letter-spacing: 0.1em; }
+
+        /* --- HERO --- */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 80px;
+            text-align: center;
+            background: #ffffff;
+        }
+        .hero-label { font-size: 21px; font-weight: 600; color: var(--text-sub); margin-bottom: 15px; display: block; }
+        .hero-title {
+            font-size: clamp(48px, 10vw, 96px);
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            background: var(--apple-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 8s linear infinite;
+        }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+        
+        .hero-desc { 
+            font-size: 24px; 
+            font-weight: 600; 
+            color: var(--text-main); 
+            margin-top: 30px; 
+            line-height: 1.4;
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            word-break: keep-all;
+        }
+        .hero-cta { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+        .btn-apple { background: #0071e3; color: #fff; padding: 12px 24px; border-radius: 980px; font-size: 17px; font-weight: 400; text-decoration: none; transition: 0.3s; }
+        .btn-apple:hover { background: #0077ed; opacity: 0.9; }
+
+        /* --- INTRO PROFILE SECTION --- */
+        .intro-section { padding: 100px 0; background: #ffffff; border-bottom: 1px solid #e5e5e5; }
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .profile-image-box {
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            background: #f0f0f2;
+            aspect-ratio: 3/4;
+        }
+        .profile-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Updated Profile Text Box Styles (2-Line Layout) */
+        .profile-text-box { text-align: left; }
+        .profile-text-box h2 {
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+            color: #1d1d1f;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .profile-role {
+            font-size: 30px; /* Reduced font size for the role */
+            font-weight: 700;
+            color: #1d1d1f;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .profile-name {
+            font-size: 60px; /* Larger font size for the name */
+            font-weight: 800;
+            color: #1d1d1f;
+            line-height: 1.1;
+            display: inline-block;
+        }
+        
+        /* Highlight Effect for the name */
+        .profile-name mark {
+            background-color: transparent;
+            background-image: linear-gradient(to top, var(--highlight-bg) 40%, transparent 40%);
+            color: inherit;
+            padding: 0 2px;
+        }
+
+        /* --- SECTION HEAD --- */
+        .section-head { padding: 100px 0 50px; text-align: center; }
+        .section-head h2 { font-size: 56px; font-weight: 700; letter-spacing: -0.005em; margin-bottom: 20px; }
+        .section-head p { 
+            font-size: 24px; 
+            color: var(--text-sub); 
+            max-width: 800px; 
+            margin: 0 auto; 
+            line-height: 1.4; 
+            word-break: keep-all; 
+        }
+        .click-hint { font-size: 15px; color: var(--accent); margin-top: 15px; font-weight: 600; display: block; animation: bounce 2s infinite; cursor: pointer; }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-5px);} 60% {transform: translateY(-3px);} }
+
+        /* --- CARDS GRID (2x2) --- */
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 100px; }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 28px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            border: none;
+            height: 100%;
+        }
+        .card:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
+        
+        .card-label { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 10px; display: block; text-transform: uppercase; letter-spacing: 0.1em; }
+        .card-title { font-size: 40px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; color: #1d1d1f; }
+        .card-body { 
+            font-size: 19px; 
+            color: var(--text-sub); 
+            line-height: 1.5;
+            margin-bottom: 30px; 
+            word-break: keep-all; 
+        }
+        .card-cta { font-size: 17px; font-weight: 600; color: var(--accent); margin-bottom: 30px; display: inline-block; }
+        
+        /* New Style for Card Logos */
+        .card-logo-row { display: flex; gap: 12px; margin-bottom: 25px; align-items: center; flex-wrap: wrap; }
+        .card-logo-small { height: 26px; width: auto; object-fit: contain; opacity: 0.85; transition: opacity 0.3s; }
+        .card-logo-small:hover { opacity: 1; }
+
+        .card-stats { display: flex; gap: 40px; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 30px; margin-top: auto; }
+        .stat-item { display: flex; flex-direction: column; }
+        .stat-val { 
+            font-size: 26px;
+            font-weight: 700; 
+            color: #1d1d1f; 
+            white-space: nowrap;
+        }
+        .stat-lab { font-size: 12px; font-weight: 600; color: var(--text-sub); text-transform: uppercase; margin-top: 4px; }
+        
+        /* Period Text */
+        .card-period { font-size: 13px; font-weight: 600; color: #999; margin-bottom: 20px; display: block; letter-spacing: 0.02em; }
+
+
+        /* --- IDENTITY SLIDES --- */
+        .id-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 150px; }
+        .id-card { background: #ffffff; border-radius: 24px; padding: 40px; box-shadow: var(--shadow); text-align: center; }
+        
+        /* Sejong Logo Style */
+        .sejong-logo { display: block; height: 50px; width: auto; margin: 0 auto 20px; object-fit: contain; }
+
+        .id-card h4 { font-size: 17px; font-weight: 600; color: var(--text-sub); margin-bottom: 10px; }
+        .id-card h3 { font-size: 32px; font-weight: 700; color: #1d1d1f; margin-bottom: 20px; }
+        .id-card ul { 
+            list-style: none; 
+            font-size: 14px; 
+            color: var(--text-sub); 
+            line-height: 1.8;
+            text-align: left; 
+            padding-left: 20px; 
+            word-break: keep-all;
+        }
+        .id-card ul li { position: relative; }
+        .id-card ul li::before { content: "•"; position: absolute; left: -15px; color: var(--accent); }
+
+        /* --- MODAL --- */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #f5f5f7; z-index: 10000; display: none; overflow-y: auto;
+        }
+        .modal.active { display: block; animation: modalIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes modalIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        
+        .modal-header { height: 52px; display: flex; align-items: center; justify-content: center; position: sticky; top: 0; background: rgba(255,255,255,0.8); backdrop-filter: saturate(180%) blur(20px); z-index: 10; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .close-btn { position: absolute; right: 22px; cursor: pointer; color: var(--accent); font-size: 17px; font-weight: 400; }
+        
+        .modal-content { max-width: 980px; margin: 80px auto; padding: 0 22px; }
+        .modal-title { font-size: 64px; font-weight: 700; text-align: center; margin-bottom: 80px; color: #1d1d1f; }
+        
+        .content-section { margin-bottom: 80px; background: #ffffff; padding: 60px; border-radius: 32px; box-shadow: var(--shadow); }
+        .section-label { font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        .section-headline { 
+            font-size: 32px; 
+            font-weight: 700; 
+            margin-bottom: 35px; 
+            color: #1d1d1f; 
+            border-bottom: 1px solid #f0f0f5; 
+            padding-bottom: 20px; 
+            word-break: keep-all;
+        }
+        
+        /* --- MODAL LAYOUTS --- */
+        .split-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: start; margin-bottom: 40px; }
+        
+        /* Vertical Stack for 29s Film (FIXED) */
+        .vertical-stack { display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; }
+        .vertical-stack .poster-wrapper { width: 100%; margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .vertical-stack .role-box { width: 100%; border-top-left-radius: 0; border-top-right-radius: 0; border-left: none; border-top: 5px solid var(--accent); }
+
+        .poster-wrapper {
+            width: 100%;
+            background: #f0f0f2;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid #e5e5e7;
+        }
+        .poster-wrapper img { width: 100%; height: auto; display: block; }
+
+        .role-box { background: #f9f9fb; border-left: 5px solid var(--accent); padding: 30px; border-radius: 0 16px 16px 0; height: 100%; }
+        .role-box strong { display: block; font-size: 14px; text-transform: uppercase; color: var(--text-sub); margin-bottom: 12px; letter-spacing: 0.05em; }
+        .role-box ul { list-style: none; padding-left: 0; margin: 0; }
+        .role-box ul li { 
+            font-size: 20px; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            margin-bottom: 10px; 
+            line-height: 1.5; 
+            position: relative; 
+            padding-left: 20px; 
+            word-break: keep-all;
+        }
+        .role-box ul li:last-child { margin-bottom: 0; }
+        .role-box ul li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+        .role-box ul li mark { background: none; color: var(--accent); font-weight: 800; }
+
+        .role-box.vertical { border-radius: 16px; width: 100%; margin-bottom: 30px; }
+
+        .insight-box { 
+            background: #fffbe6; 
+            padding: 40px; 
+            border-radius: 16px; 
+            border: 1px solid #ffe58f; 
+            margin-top: 40px;
+            text-align: center; 
+        }
+        .insight-box strong { display: block; font-size: 14px; text-transform: uppercase; color: #856404; margin-bottom: 12px; letter-spacing: 0.05em; }
+        .insight-box p { 
+            font-size: 22px; 
+            font-weight: 600; 
+            color: #1d1d1f; 
+            line-height: 1.6; 
+            margin: 0; 
+            word-break: keep-all; 
+        }
+        .insight-box p mark { 
+            background: #fff3cf; 
+            font-weight: 900; 
+            padding: 0 6px; 
+            font-size: 26px; 
+            display: inline-block;
+            margin: 4px 0;
+            line-height: 1.2;
+        }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 40px; }
+        .feature-box { background: #f5f5f7; padding: 35px; border-radius: 20px; }
+        .feature-box h6 { font-size: 18px; font-weight: 700; color: #1d1d1f; margin-bottom: 12px; }
+        .feature-box p { font-size: 15px; color: var(--text-sub); line-height: 1.7; word-break: keep-all; }
+
+        .market-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 10px; }
+        .market-chip { background: #ffffff; border: 1px solid #e5e5e7; padding: 18px; border-radius: 14px; text-align: center; font-size: 15px; font-weight: 700; color: #1d1d1f; }
+        .market-label { font-size: 13px; font-weight: 600; color: #86868b; text-transform: uppercase; margin-top: 50px; margin-bottom: 20px; letter-spacing: 0.05em; display: block; text-align: center; }
+
+        .audio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 50px; }
+        .audio-img-box { 
+            border-radius: 16px; 
+            overflow: hidden; 
+            height: 200px; 
+            background: #f0f0f2; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+        .audio-img-box:hover { transform: scale(1.02); }
+        .audio-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .audio-title { font-size: 18px; font-weight: 700; color: #1d1d1f; margin-top: 50px; margin-bottom: 20px; text-align: center; }
+
+        /* SNS GRID - UPDATED TO 1 COLUMN */
+        .sns-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 50px; }
+        .sns-img-box {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #f0f0f2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            /* Removed fixed aspect-ratio to show full image */
+        }
+        .sns-img-box img { width: 100%; height: auto; display: block; }
+
+        .pipeline-visual { 
+            margin-top: 40px; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+            border: 1px solid #e5e5e7;
+        }
+        .pipeline-visual img { width: 100%; height: auto; display: block; }
+
+        /* --- LOGO STYLES --- */
+        .mooam-logo-main { display: block; height: 50px; width: auto; margin-bottom: 25px; object-fit: contain; object-position: left; }
+        .mooam-logo-nav { height: 20px; width: auto; vertical-align: middle; margin-right: 12px; opacity: 0.8; }
+        .mooam-logo-modal { height: 35px; width: auto; margin-bottom: 20px; display: block; opacity: 0.9; }
+        .film-logo-main { display: block; height: 60px; width: auto; margin-bottom: 25px; object-fit: contain; object-position: left; }
+        
+        /* Market Logos Grid Style - ONE LINE */
+        .market-logo-grid {
+            display: flex;
+            justify-content: space-around; 
+            align-items: center;
+            gap: 20px;
+            flex-wrap: nowrap; 
+            background: #f9f9fb;
+            padding: 40px;
+            border-radius: 16px;
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+        .market-logo {
+            height: 40px; 
+            width: auto;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: 0.3s;
+            flex-shrink: 0; 
+        }
+        .market-logo:hover { opacity: 1; transform: scale(1.05); }
+
+        .kocca-logo-large {
+            display: block;
+            width: 240px; /* Bigger size as requested */
+            height: auto;
+            margin: 0 auto 30px; /* Centered */
+            opacity: 1;
+        }
+
+        .partner-logo { display: block; width: 180px; height: auto; margin-bottom: 30px; opacity: 0.9; }
+
+        /* MBN Thumbnails Grid */
+        .mbn-thumb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+        .mbn-thumb-box { 
+            display: block; /* Added for anchor tag behavior */
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .mbn-thumb-box:hover { transform: scale(1.02); }
+        .mbn-thumb-box img { width: 100%; height: auto; display: block; }
+        
+        /* NEW: IMC Process Flow Grid (UPDATED) */
+        .process-grid-row1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cards in first row */
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .process-grid-row2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 cards in second row */
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .process-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .process-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .process-step { font-size: 0.75rem; font-weight: 900; color: #999; letter-spacing: 0.1em; display: block; margin-bottom: 10px; }
+        .process-title { font-size: 1.3rem; font-weight: 900; color: #1d1d1f; margin-bottom: 12px; }
+        .process-desc { font-size: 1rem; color: #555; line-height: 1.6; }
+        
+        /* UPDATED: Travel Stack with No Gap */
+        .travel-stack { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0; 
+            margin-bottom: 40px; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e5e5e5;
+        }
+        .travel-stack img { width: 100%; height: auto; display: block; }
+        
+        /* Travel Feat Card Highlights */
+        .travel-feat-card mark {
+            background-color: var(--highlight-bg);
+            color: #1d1d1f;
+            font-weight: 700;
+            padding: 0 4px;
+            border-radius: 2px;
+        }
+
+        /* --- FOOTER --- */
+        footer { padding: 100px 0 50px; border-top: 1px solid #d2d2d7; background: #ffffff; }
+        .footer-links { color: var(--text-sub); font-size: 12px; margin-top: 20px; display: flex; gap: 20px; border-top: 1px solid #d2d2d7; padding-top: 20px; }
+
+        /* --- MOBILE --- */
+        @media (max-width: 800px) {
+            .grid, .id-grid, .feature-grid, .market-list, .split-layout, .audio-grid, .sns-grid, .profile-grid, .market-logo-grid, .mbn-thumb-grid, .process-grid-row1, .process-grid-row2 { grid-template-columns: 1fr; }
+            .split-layout { gap: 30px; }
+            .poster-wrapper { max-width: 400px; margin: 0 auto; }
+            .section-head h2 { font-size: 40px; }
+            .hero-title { font-size: 48px; }
+            .card-title { font-size: 32px; }
+            .content-section { padding: 30px; }
+            .insight-box p mark { font-size: 20px; }
+            .role-box ul li { font-size: 17px; }
+            .profile-text-box h2 { text-align: center; font-size: 40px; }
+            .profile-image-box img { width: 60%; margin: 0 auto; } 
+            
+            .market-logo-grid { justify-content: flex-start; gap: 30px; } 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-content">
+            <span class="nav-logo">CHOI DONG-A</span>
+            <span>Video PD & SNS Marketer</span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <span class="hero-label">Creative Intelligence</span>
+                <!-- Reverted Title to English -->
+                <h1 class="hero-title">PRECISION IN VISION</h1>
+                <!-- Updated Intro Description -->
+                <p class="hero-desc">AI와 함께 철저한 조사로<br>기획, 제작을 완수하겠습니다.</p>
+                <div class="hero-cta">
+                    <a href="mailto:hopedonga13@gmail.com" class="btn-apple">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRO PROFILE -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="profile-grid">
+                    <div class="profile-image-box">
+                        <!-- Restored User's Original Profile Picture -->
+                        <img src="https://lh3.googleusercontent.com/d/1GolbHLFEUioEWETF30VvoBopGLCfJK_9" alt="최동아 프로필 사진" onerror="this.src='https://via.placeholder.com/600x800?text=Profile+Image'">
+                    </div>
+                    <!-- Updated Text Layout: Two lines with different sizes & Highlight -->
+                    <div class="profile-text-box">
+                        <h2>
+                            <span class="profile-role">영상 제작 PD & SNS 에디터</span>
+                            <span class="profile-name"><mark>최동아입니다.</mark></span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKS -->
+        <section class="container">
+            <div class="section-head">
+                <h2>Pro Projects</h2>
+                <p>분석으로 성과를 만드는 편집 프로세스</p>
+                <span class="click-hint">↓ 카드를 클릭하여 상세 내용을 확인하세요</span>
+            </div>
+
+            <div class="grid">
+                <!-- MooAm -->
+                <div class="card" onclick="openModal('muam-modal')">
+                    <div>
+                        <span class="card-label">Creative Production</span>
+                        <img src="https://lh3.googleusercontent.com/d/1BEz_TULu7XmE9cqt8sFwJPsDsf2pQvEj" alt="MooAm Logo" class="mooam-logo-main">
+                        <h3 class="card-title">MooAm:<br>AI Workflow</h3>
+                        <span class="card-period">2025.06 — 2025.12</span>
+                        <p class="card-body">IP 제작팀 PD로서 AI 파이프라인으로 완수한 글로벌 작품 납품 및 SNS 활성화</p>
+                        <span class="card-cta">View Projects ›</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-item"><span class="stat-val">Drama / Movie / SNS</span><span class="stat-lab">Create</span></div>
+                        <div class="stat-item"><span class="stat-val" style="color:var(--accent)">AI</span><span class="stat-lab">Hybrid</span></div>
+                    </div>
+                </div>
+
+                <!-- Travel -->
+                <div class="card" onclick="openModal('travel-modal')">
+                    <div>
+                        <span class="card-label">Youtube Branding</span>
+                        <h3 class="card-title">All That Travel:<br>Main Edit</h3>
+                        <span class="card-period">2022.01 — 2025.02</span>
+                        <p class="card-body">누적 조회수 150만 기록 및<br>포털 사이트 기사 노출</p>
+                        
+                        <!-- Partner Logos -->
+                        <div class="card-logo-row">
+                             <img src="https://lh3.googleusercontent.com/d/1ssEG99-Nf4QChn0vkNpWfaaHNNa7nLtn" alt="Hankook Ilbo" class="card-logo-small">
+                             <img src="https://lh3.googleusercontent.com/d/1vMdJxlYPOnkNzJPHYYSElk9Tl0AwvLTy" alt="MBC" class="card-logo-small">
+                        </div>
+
+                        <span class="card-cta">View Projects ›</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-item"><span class="stat-val">1.5M</span><span class="stat-lab">Views</span></div>
+                        <div class="stat-item"><span class="stat-val" style="color:var(--accent)">방송사&포털</span><span class="stat-lab">노출</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER PROJECTS -->
+        <section class="container" style="padding-top: 120px;">
+            <div class="section-head">
+                <h2>Other Projects</h2>
+                <p>IMC & Videos</p>
+            </div>
+            
+            <div class="grid">
+                <!-- IMC Marketing -->
+                <div class="card" onclick="openModal('imc-modal')">
+                    <div>
+                        <span class="card-label">Integrated Strategy</span>
+                        <h3 class="card-title">IMC Marketing:<br>Logic & Brand</h3>
+                        <span class="card-period">2023.03 — 2023.06</span>
+                        <p class="card-body">시장 분석 기반의 논리적 마케팅 솔루션</p>
+                        <!-- Restored Logos in IMC Card -->
+                        <div class="card-logo-row">
+                             <img src="https://lh3.googleusercontent.com/d/1kdckBRiYcGeVigqzdahaP8n2reDu4hbd" alt="Fresheasy" class="card-logo-small">
+                             <img src="https://lh3.googleusercontent.com/d/19cw3ooKKL7o9pX_WvyVECPX9uPOL_Xch" alt="Kolon" class="card-logo-small">
+                             <img src="https://lh3.googleusercontent.com/d/16mPcA6IkAUXySICOGiFyK3gN6Is4M-hZ" alt="Red Bull" class="card-logo-small">
+                        </div>
+                        <span class="card-cta">View Projects ›</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-item"><span class="stat-val">University</span><span class="stat-lab">Projects</span></div>
+                        <div class="stat-item"><span class="stat-val" style="color:var(--accent)">A+</span><span class="stat-lab">Grade</span></div>
+                    </div>
+                </div>
+
+                <!-- Film Festival (Logo Removed) -->
+                <div class="card" onclick="openModal('film-modal')">
+                    <div>
+                        <span class="card-label">Short Film</span>
+                        <!-- Logo Restored as requested -->
+                        <img src="https://lh3.googleusercontent.com/d/1pZLqunHsOgkFu4yQyvxcZw5sw2PPAWir" alt="29s Film Fest Logo" class="film-logo-main" style="height: 40px; margin-bottom: 20px;">
+                        <h3 class="card-title">29s Film Fest:<br>Soud & Edit</h3>
+                        <span class="card-period">2024.05 — 2024.08</span>
+                        <p class="card-body">제한된 시간 내에 서사를 구축하는 <br>현장 경험과 편집</p>
+                        <span class="card-cta">View Projects ›</span>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-item"><span class="stat-val">29s</span><span class="stat-lab">Film</span></div>
+                        <div class="stat-item"><span class="stat-val" style="color:var(--accent)">Edit & Sound</span><span class="stat-lab">Role</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCY -->
+        <section class="container" style="padding-bottom: 100px;">
+            <div class="section-head">
+                <h2>Competency</h2>
+            </div>
+            <div class="id-grid">
+                <div class="id-card">
+                    <h4>Academic</h4>
+                    <h3>3.98 / 4.5</h3>
+                    <!-- Sejong Logo Added -->
+                    <img src="https://lh3.googleusercontent.com/d/1MZB9AscIPVd5hiB_AQvUiIgoqbd0vPux" alt="Sejong University Logo" class="sejong-logo">
+                    <ul>
+                        <li>세종대 <strong>미디어커뮤니케이션</strong> 학사</li>
+                        <li><strong>국어국문학</strong> 부전공</li>
+                        <li>기획과 편집의 균형 잡힌 시각</li>
+                    </ul>
+                </div>
+                <div class="id-card" style="background: linear-gradient(145deg, #ffffff, #f0f0f5);">
+                    <h4 style="color:var(--accent)">Proficiency</h4>
+                    <h3 style="background: var(--apple-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Visual Master</h3>
+                    <ul>
+                        <li><strong>AI:</strong> Midjourney, Kling AI</li>
+                        <li><strong>Video:</strong> Premiere, After Effects</li>
+                        <li><strong>Audio:</strong> Logic Pro X</li>
+                    </ul>
+                </div>
+                <div class="id-card">
+                    <h4>Global & Certs</h4>
+                    <h3>TOEIC Speaking IH</h3>
+                    <ul>
+                        <li>글로벌 비즈니스 커뮤니케이션</li>
+                        <li><strong>포토샵 1급</strong> / <strong>일러스트 1급</strong></li>
+                        <li>KOCCA 글로벌 마켓 대응</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h2 class="hero-title" style="font-size: 40px; margin-bottom: 40px; text-align: left;">Defining vision through precision.</h2>
+                <div class="footer-links">
+                    <span>hopedonga13@gmail.com</span>
+                    <span>010-9843-0808</span>
+                    <span>© 2026 CHOI DONG-A</span>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- MOOAM MODAL -->
+    <div class="modal" id="muam-modal">
+        <div class="modal-header">
+            <span class="logo">
+                <img src="https://lh3.googleusercontent.com/d/1BEz_TULu7XmE9cqt8sFwJPsDsf2pQvEj" alt="MooAm Logo" class="mooam-logo-nav">
+                MOOAM Projects
+            </span>
+            <div class="close-btn" onclick="closeModal('muam-modal')">Done</div>
+        </div>
+        
+        <div class="modal-content">
+            <h2 class="modal-title">MooAm Production</h2>
+
+            <div class="content-section">
+                <span class="section-label">01. Global Market Project</span>
+                <h3 class="section-headline">60부작 숏폼 드라마 재제작</h3>
+                <div class="split-layout">
+                    <div class="poster-wrapper">
+                        <img src="https://lh3.googleusercontent.com/d/1tYOTmEM8KjVe4XgrP4xJII5nCj7x1vrr" alt="계약직만 9번한 여자 메인 포스터" onerror="this.src='https://via.placeholder.com/450x675?text=Poster+Image+Loading...'">
+                    </div>
+                    <div class="role-box">
+                        <img src="https://lh3.googleusercontent.com/d/1BEz_TULu7XmE9cqt8sFwJPsDsf2pQvEj" alt="MooAm Logo" class="mooam-logo-modal">
+                        <strong>My Role</strong>
+                        <ul>
+                            <li>81분 장편 영화 → <mark>60부작 숏폼 드라마 재구성 및 납품</mark></li>
+                            <li>CG 및 믹싱 전체 소통 및 <mark>AI 활용한 CG 재편집</mark></li>
+                            <li>세로형(9:16) 최적화 <mark>구도 설계 및 화면 편집</mark></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p>기존 영화 IP를 모바일 환경에 최적화된 <mark>숏폼 포맷으로 성공적으로 전환</mark>하고, 4개국 이상 <mark>해외 납품</mark> 등 성과를 달성했습니다.</p>
+                </div>
+                <span class="market-label">Global Distribution (수출 및 납품 국가)</span>
+                <div class="market-list">
+                    <div class="market-chip">🇲🇳 MONGOLIA</div>
+                    <div class="market-chip">🇫🇷 FRANCE</div>
+                    <div class="market-chip">🇺🇸 USA</div>
+                    <div class="market-chip">🇰🇷 KOREA</div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">02. AI Creative Technology</span>
+                <h3 class="section-headline">국내 최초 AI 하이브리드 영화 'Genfluencer'.</h3>
+                <div class="poster-wrapper" style="margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+                    <img src="https://lh3.googleusercontent.com/d/1PDX_21Pvyxast9iTnNAeYVI2PNiH7xIH" alt="Genfluencer Poster" onerror="this.src='https://via.placeholder.com/800x450?text=Genfluencer+Poster'">
+                </div>
+                <div class="role-box vertical">
+                    <strong>My Role [Genfluencer]</strong>
+                    <ul>
+                        <li>생성형 AI <mark>모션 촬영 어시스트</mark></li>
+                        <li>홍보 및 <mark>보도자료용 사진 촬영</mark></li>
+                        <li>공식 <mark>행사용 포스터 제작</mark></li>
+                        <li>한국콘텐츠진흥원 제출용 <mark>편집본 전체 오디오 믹싱</mark></li>
+                    </ul>
+                </div>
+                <div class="insight-box" style="margin-top: 0; margin-bottom: 50px;">
+                    <strong>Insight</strong>
+                    <p>AI 영상의 사운드적 한계를 보완하여 <mark>영화적 완성도</mark>를 높였습니다.</p>
+                </div>
+                <div class="audio-title">Audio Post-Production Process</div>
+                <div class="audio-grid" style="margin-bottom: 40px;">
+                    <div class="audio-img-box"><img src="https://lh3.googleusercontent.com/d/1sVqiPtyAQrwP026eBo2LQL_TSeSrmlhI" alt="Audio Mixing Process 1"></div>
+                    <div class="audio-img-box"><img src="https://lh3.googleusercontent.com/d/1CxG3-jzT7RvZoEd4t66dRGUUuqg4Sj1E" alt="Audio Mixing Process 2"></div>
+                    <div class="audio-img-box"><img src="https://lh3.googleusercontent.com/d/1F6DT2vGj_Oe4HrFNtANx5tHcEFp6DTth" alt="Audio Mixing Process 3"></div>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-box"><h6>Logic Pro X Mastering</h6><p>AI 프로덕션의 영화적 완성도 제고</p></div>
+                    <div class="feature-box"><h6>Visual Production</h6><p>촬영부터 포스터 디자인까지 통합적 기여</p></div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">03. SNS Growth & Brand Strategy</span>
+                <h3 class="section-headline">계정 팔로워 +60% 성장 & 공식 채널 총괄 운영</h3>
+                <!-- SNS Grid Updated to 1 Column -->
+                <div class="sns-grid">
+                    <div class="sns-img-box"><img src="https://lh3.googleusercontent.com/d/1JKrPCh2xI_IUBJk-eFIcfJT6K-e7rYrb" alt="Instagram Renewal Profile"></div>
+                    <div class="sns-img-box"><img src="https://lh3.googleusercontent.com/d/1-tZ4AET0aSzBouo3cP8k_FAn3rMH0V8o" alt="Instagram Grid System"></div>
+                </div>
+                <div class="role-box vertical">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li>입사 후 비활성 계정 <mark>인스타그램 리뉴얼 및 팔로워 60% 상승</mark></li>
+                        <li>회사 공식 SNS 계정(인스타그램, 릴스) <mark>콘텐츠 기획 및 업로드 총괄</mark></li>
+                        <li><strong>Kling AI 공식 CPP 에디터</strong>로서 AI 영상 편집 및 업로드</li>
+                        <li>전략적 운영을 통한 <mark>쓰레드(Threads) 팔로워 2배 성장</mark></li>
+                        <li><mark>링크드인(LinkedIn)</mark> 공식 계정 관리 및 운영</li>
+                    </ul>
+                </div>
+                <div class="insight-box" style="margin-top: 0; margin-bottom: 0;">
+                    <strong>Insight</strong>
+                    <p>매거진 등 <mark>신규 콘텐츠 전략</mark>으로 브랜드 이미지를 제고하고, <mark>AI 툴(Kling) 공식 파트너</mark>로서 실질적인 <br><mark>오디언스 성장(+60%)</mark>을 만들어냈습니다.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">04. Global Market Visual Assets</span>
+                <h3 class="section-headline">KOCCA 협업 글로벌 마켓 비주얼 제작</h3>
+                
+                <img src="https://lh3.googleusercontent.com/d/1EawSVOjtjXtjWNqL9dZyEOcBusz0ziqZ" alt="KOCCA Logo" class="kocca-logo-large">
+
+                <!-- Market Logos Grid (One Line) -->
+                <div class="market-logo-grid">
+                    <img src="https://lh3.googleusercontent.com/d/16KLX15lWASKpG4GVJbXxUyZ3KHdgFyBm" alt="Kolon Sport" class="market-logo">
+                    <img src="https://lh3.googleusercontent.com/d/1iu3xseu5hZxw2Lum0HFh2263EhrLpGiq" alt="29s Film Fest" class="market-logo">
+                    <img src="https://lh3.googleusercontent.com/d/1wHN3Hv7HltzrXaVa0dIxOFV9KY-QsxtR" alt="Red Bull" class="market-logo">
+                    <img src="https://lh3.googleusercontent.com/d/10ZQDqkRAVGVhtuKDsjvkBLo9WYxtl7eJ" alt="Hankook Ilbo" class="market-logo">
+                    <img src="https://lh3.googleusercontent.com/d/1d7Ksp7AKXTmYnjBaWxGo8vk9NQBcw0fQ" alt="Fresheasy" class="market-logo">
+                </div>
+
+                <div class="role-box" style="margin-top: 30px;">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li>프랑스 mipcom, 일본 TIFFCOM 등 <mark>글로벌 마켓용 사내 홍보 영상 편집</mark></li>
+                        <li>현장 부스 전시용 <mark>키 비주얼 및 포스터</mark> 홍보물 제작</li>
+                    </ul>
+                </div>
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p>글로벌 비즈니스 현장에서 <mark>가독성 높은 비주얼 언어의 힘</mark>을 더해, 글로벌 마켓 이미지의 스탠다드를 체득했습니다.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">05. AI Creative Pipeline</span>
+                <h3 class="section-headline">Four-Step 최적화 워크플로우 정립</h3>
+                <div class="role-box">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li><mark>OpenAI 공식 커머셜 영상 기획 및 제작</mark></li>
+                        <li>OpenAI, APEC 공모전 등 실무를 통한 <mark>보편적 AI 파이프라인 설계</mark></li>
+                        <li>아이디어부터 납품까지 <mark>제작 시간을 확연히 단축한 최신 프로세스</mark> 운영</li>
+                    </ul>
+                </div>
+                <div class="market-list" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="market-chip" style="background:#f5f5f7; border:none; font-weight: 800;">Ideation</div>
+                    <div class="market-chip" style="background:#f5f5f7; border:none; font-weight: 800;">Visual Gen</div>
+                    <div class="market-chip" style="background:#f5f5f7; border:none; font-weight: 800;">Video Gen</div>
+                    <div class="market-chip" style="background:#f5f5f7; border:none; font-weight: 800;">Mastering</div>
+                </div>
+                <div class="pipeline-visual">
+                    <img src="https://lh3.googleusercontent.com/d/12WMh-T--KqBz3ceajA4iMgDH6iDFgSfw" alt="AI Pipeline Key Visual" onerror="this.src='https://via.placeholder.com/800x450?text=Pipeline+Visual+Placeholder'">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">06. Digital Media Collaboration</span>
+                <h3 class="section-headline">MBN 뉴스 콘텐츠 디지털 전환 프로젝트</h3>
+                
+                <!-- MBN Logo -->
+                <img src="https://lh3.googleusercontent.com/d/1f_tSa9aRSqHmceNDqhZeJQS4LG34PjS4" alt="MBN Logo" class="partner-logo">
+
+                <div class="role-box">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li>MBN 취재 소스 활용 <mark>큐레이션 영상 기획 및 편집</mark></li>
+                        <li>유튜브 알고리즘을 고려한 <mark>전략적 썸네일 디자인</mark></li>
+                    </ul>
+                </div>
+
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p>기사의 <mark>정확성</mark>을 유지하면서도 일반인이 보기 쉬운 <mark>새로운 큐레이션 포맷</mark>을 구상했습니다.<br><mark>2주 내 3편을</mark> 기획부터 제작, 유통까지 완수하며<br>유튜브 편집 능력을 증명했습니다.</p>
+                </div>
+
+                <!-- MBN Thumbnails Grid (Updated with Links) -->
+                <div class="mbn-thumb-grid">
+                    <a href="https://youtu.be/CFtUKCTGyCk" target="_blank" class="mbn-thumb-box">
+                        <img src="https://lh3.googleusercontent.com/d/1prgccPUv2b3fczEjMfIdkNDhtlNe-oHD" alt="MBN Thumbnail 1">
+                    </a>
+                    <a href="https://youtu.be/oJsHtaM2qDk" target="_blank" class="mbn-thumb-box">
+                        <img src="https://lh3.googleusercontent.com/d/1UzaXXvJHwMNXQuiXuYbvSF_EtiNRBz4N" alt="MBN Thumbnail 2">
+                    </a>
+                    <a href="https://youtu.be/bk-qBU4CChQ" target="_blank" class="mbn-thumb-box">
+                        <img src="https://lh3.googleusercontent.com/d/1xEsICoxFZ0G9_3qJxHHS_MVqKvFPZJUE" alt="MBN Thumbnail 3">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRAVEL MODAL -->
+    <div class="modal" id="travel-modal">
+        <div class="modal-header">
+            <span>All That Travel Projects</span>
+            <div class="close-btn" onclick="closeModal('travel-modal')">Done</div>
+        </div>
+        <div class="modal-content">
+            <h2 class="modal-title">All That Travel</h2>
+            
+            <!-- Added Partner Logo (Hankook Ilbo) -->
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="https://lh3.googleusercontent.com/d/1ssEG99-Nf4QChn0vkNpWfaaHNNa7nLtn" alt="Hankook Ilbo Logo" style="height: 40px; width: auto;">
+            </div>
+
+            <div class="content-section">
+                <span class="section-label">01. Performance Achievement</span>
+                <h3 class="section-headline">누적 150만 조회수 유튜브 브랜딩</h3>
+                <!-- UPDATED: Stacked Images with No Gap -->
+                <div class="travel-stack">
+                    <img src="https://lh3.googleusercontent.com/d/19EzlSVavjHo10JcbedqFuKXsKqo-RCmJ" alt="Travel Image 1">
+                    <img src="https://lh3.googleusercontent.com/d/16RBolUWsRsCVLHLFf-Mdfl_IMZJaNGbq" alt="Travel Image 2">
+                </div>
+
+                <!-- Introduction Text Added -->
+                <p style="font-size: 1.1rem; color: #555; line-height: 1.6; margin-bottom: 30px;">
+                    이 유튜브 채널은 <strong>한국일보 여행면</strong>에 첨부된 이미지와 취재 영상을<br>유튜브 포맷으로 <strong>재가공 및 편집한 공식 미디어 프로젝트</strong>입니다.
+                </p>
+
+                <div class="role-box">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li>유튜브 채널 메인 에디터로서 <mark>287개 영상의 기획, 컷편집, 썸네일</mark> 전담</li>
+                        <li>데이터 기반의 시청 지속 시간 분석 및 <mark>지역별 특성 편집</mark></li>
+                    </ul>
+                </div>
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p><strong>시청 지속 시간을 고려한 간편한 편집</strong>으로 MBC, tvN, TV조선 등 <strong>다수의 방송사 협업 요청</strong>을 이끌어냈습니다.</p>
+                </div>
+            </div>
+            <div class="content-section">
+                <span class="section-label">02. Visual Strategy</span>
+                <div class="feature-grid">
+                    <div class="feature-box"><h6>4060 타겟팅</h6><p>중장년층 시청자를 고려한 <mark>대형 타이포그래피 자막</mark> 및 가독성 중심 정보 전달</p></div>
+                    <div class="feature-box"><h6>Color Grading</h6><p>날씨와 환경에 맞춰 <mark>Luma 값 및 화이트밸런스</mark>를 정교하게 조정하여 영상미 제고</p></div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <span class="section-label">03. Media Recognition</span>
+                <h3 class="section-headline">주요 방송사 및 포털 협업 성과</h3>
+                <p style="font-size: 1.1rem; color: #555; margin-bottom: 40px;">유튜브 채널의 콘텐츠 퀄리티로, <strong>다양한 방송 프로그램에 공식 자료 화면</strong>문의를 받았습니다.</p>
+                
+                <!-- 1. Broadcast Media Group -->
+                <span style="font-size: 0.8rem; font-weight: 800; color: #bbb; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 20px;">Broadcast Media (자료 화면 협조)</span>
+                <div class="market-logo-grid" style="justify-content: flex-start; gap: 40px; margin-top: 0; margin-bottom: 50px;">
+                    
+                    <!-- MBC (Corrected Image Link & Text) -->
+                    <div style="text-align: center;">
+                        <img src="https://lh3.googleusercontent.com/d/1glMByGAt95hiP0AoxvlWP1R5r5mMpCgs" alt="MBC Logo" class="market-logo" style="margin-bottom: 10px;">
+                        <p style="font-size: 0.8rem; line-height: 1.4; color: #333;">
+                            <strong>&lt;푹 쉬면 다행이야&gt;</strong><br>
+                            거제 편 영상 협조
+                        </p>
+                    </div>
+
+                    <!-- tvN (Corrected Image Link & Text) -->
+                    <div style="text-align: center;">
+                        <img src="https://lh3.googleusercontent.com/d/1UD4vd4jSVW5s5K6xXWjJqMsHurN8TXNn" alt="tvN Logo" class="market-logo" style="margin-bottom: 10px;">
+                        <p style="font-size: 0.8rem; line-height: 1.4; color: #333;">
+                            <strong>&lt;프리한 19&gt;</strong><br>
+                            안동 편, 부여 편 협조
+                        </p>
+                    </div>
+
+                    <!-- TV Chosun (Updated Content) -->
+                    <div style="text-align: center;">
+                        <img src="https://lh3.googleusercontent.com/d/16_O-wWsgWBC-IgVx-p_02zh1P1kmIYUh" alt="TV Chosun Logo" class="market-logo" style="margin-bottom: 10px;">
+                         <p style="font-size: 0.8rem; line-height: 1.4; color: #333;">
+                            <strong>TV CHOSUN</strong><br>
+                            무주 편 영상 소스 협조
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Digital Platform Group (Improved Design) -->
+                <span style="font-size: 0.8rem; font-weight: 800; color: #bbb; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 20px;">Digital Platform (메인 노출)</span>
+                
+                <!-- Changed to a full-width card style for better visual density -->
+                <div style="background: #f9f9fb; padding: 40px; border-radius: 16px; display: flex; align-items: center; justify-content: center; gap: 40px; border: 1px solid #e5e5e5;">
+                    <img src="https://lh3.googleusercontent.com/d/1U5EOvMP62CaXYnCiQkpZ4h1nt-Mhm6oQ" alt="Daum Logo" style="height: 50px; width: auto; object-fit: contain;">
+                    <div style="border-left: 2px solid #ddd; padding-left: 40px;">
+                        <h4 style="font-size: 1.5rem; font-weight: 900; margin-bottom: 5px;">Daum 포털 메인 노출</h4>
+                        <p style="font-size: 1rem; color: #555;">여행 섹션 주요 콘텐츠 선정 및 트래픽 견인</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- IMC MODAL -->
+    <div class="modal" id="imc-modal">
+        <div class="modal-header">
+            <span>Integrated Marketing Communication</span>
+            <div class="close-btn" onclick="closeModal('imc-modal')">Done</div>
+        </div>
+        <div class="modal-content">
+            <h2 class="modal-title">IMC Marketing Strategy</h2>
+            <div class="content-section">
+                <span class="section-label">01. Integrated Strategy</span>
+                <h3 class="section-headline">철저한 조사 기반의 브랜드 솔루션</h3>
+                <div class="role-box">
+                    <strong>My Role</strong>
+                    <ul>
+                        <li><mark>프레시지, 코오롱스포츠, 레드불</mark> 등 다수 기업 IMC 전략 수립</li>
+                        <li>시장 데이터, 경쟁사(SWOT), 소비자 페르소나 분석 통한 <mark>논리적 문제 도출</mark></li>
+                        <li><strong>"오늘 먹은 밀키트, 다 프레시지"</strong>와 같은 핵심 메시지 개발</li>
+                    </ul>
+                </div>
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p>명확한 타겟 설정과 <strong>인지-경험-확산</strong> 단계별 매체 전략을 통해 <mark> 실무적 솔루션</mark>을 도출하는 기획력을 입증했습니다. (수업 내 유일 A+)</p>
+                </div>
+            </div>
+
+            <!-- NEW: STRATEGIC PROCESS FLOW (5 STEPS) -->
+            <div class="content-section" style="background:#f9f9fb;">
+                <span class="section-label">02. Strategic Process</span>
+                <h3 class="section-headline">Data-Driven Planning Flow</h3>
+                <!-- Row 1: 3 Items -->
+                <div class="process-grid-row1">
+                    <div class="process-card">
+                        <span class="process-step">STEP 01</span>
+                        <h4 class="process-title">Situation Analysis</h4>
+                        <p class="process-desc">시장/자사/경쟁사/SWOT 분석을 통해 '높은 시장 점유율 대비 낮은 브랜드 인지도'라는 핵심 문제 도출</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-step">STEP 02</span>
+                        <h4 class="process-title">Problem Solving</h4>
+                        <p class="process-desc">단순 제품 홍보가 아닌, 브랜드 자체를 각인시킬 수 있는 일상 침투형 메시지("오늘 먹은 밀키트, 다 프레시지") 개발</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-step">STEP 03</span>
+                        <h4 class="process-title">Targeting</h4>
+                        <p class="process-desc">통계청 자료 기반 타깃 설정 및 3040 기혼 남녀(Main) 및 20대(Sub) 타겟의 라이프스타일 정밀 분석</p>
+                    </div>
+                </div>
+                <!-- Row 2: 2 Items -->
+                <div class="process-grid-row2">
+                    <div class="process-card">
+                        <span class="process-step">STEP 04</span>
+                        <h4 class="process-title">Strategy Execution</h4>
+                        <p class="process-desc">방통위 자료 기반 인지(TV/옥외) → 경험(팝업) → 확산(SNS)으로 이어지는 파동형 매체 전략</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-step">STEP 05</span>
+                        <h4 class="process-title">Evaluation</h4>
+                        <p class="process-desc">정량적(조회수, 도달률) 및 정성적(설문조사) 지표 설계를 통한 캠페인 성과 측정</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILM MODAL -->
+    <div class="modal" id="film-modal">
+        <div class="modal-header">
+            <span>29s Film Festival</span>
+            <div class="close-btn" onclick="closeModal('film-modal')">Done</div>
+        </div>
+        <div class="modal-content">
+            <h2 class="modal-title">29s Film Festival</h2>
+            <div class="content-section">
+                <span class="section-label">01. Short Storytelling</span>
+                <h3 class="section-headline">29초 내 임팩트 있는 서사 구축</h3>
+                
+                <!-- Vertical Stack: Poster (Top) - Details (Bottom) (FIXED) -->
+                <div class="vertical-stack">
+                    <div class="poster-wrapper">
+                        <!-- Updated Poster Image (Requested Link) -->
+                        <img src="https://lh3.googleusercontent.com/d/1AluYAotmDLQnA5ugDaUuf7x7-N0wXXdy" alt="29s Film Fest Poster" onerror="this.src='https://via.placeholder.com/450x675?text=29s+Film+Poster'">
+                    </div>
+                    
+                    <div class="role-box vertical">
+                        <!-- Added 29s Film Fest Logo at the top of role box -->
+                         <div style="text-align: center; margin-bottom: 20px;">
+                            <img src="https://lh3.googleusercontent.com/d/1pZLqunHsOgkFu4yQyvxcZw5sw2PPAWir" alt="29s Film Fest Logo" style="height: 50px; width: auto; opacity: 0.9;">
+                        </div>
+
+                        <strong>My Role</strong>
+                        <ul>
+                            <li>제10회 신한 29초 영화제 출품작 <strong>"여행, 다녀왔습니다"</strong> 제작 스태프</li>
+                            <li>현장 촬영 보조, 조명 세팅 및 <mark>Final Cut Pro X 기반 컷 편집</mark></li>
+                            <li><mark>Logic Pro X</mark>를 활용한 후시 녹음 보정(Noise Reduction) 및 사운드 믹싱</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <strong>Insight</strong>
+                    <p>제한된 시간 내에 메시지를 강렬하게 전달하는 <strong>연출력</strong>과 현장 돌발 상황에 대처하는 <strong>유연한 커뮤니케이션 능력</strong>을 길렀습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Scroll Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card, .id-card, .section-head, .content-section, .profile-image-box, .profile-text-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
